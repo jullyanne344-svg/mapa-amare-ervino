@@ -56,5 +56,6 @@ function download(content,name,type){const blob=new Blob([content],{type}),a=doc
 async function bootstrap(){await authInit();await loadRecords();loadLegacy();cloudChannel=db.channel('mapa-imoveis-praia-ervino').on('postgres_changes',{event:'*',schema:'public',table:'imoveis'},()=>loadRecords()).subscribe(s=>{if(s==='SUBSCRIBED')console.info('Sincronização em tempo real conectada')})}bootstrap();
 </script>
 <script src="./localizacao.js"></script>
+<script src="./importador-amare.js"></script>
 </body>
 </html>
